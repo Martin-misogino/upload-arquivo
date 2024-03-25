@@ -1,0 +1,3 @@
+<?php
+
+$pastaDestino = "upload/";
