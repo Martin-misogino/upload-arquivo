@@ -11,4 +11,10 @@ if (file_exists(__DIR__. $pastaDestino. $nomeArquivo)) {
     exit;
 }
 
-var_dump(__DIR__. $pastaDestino. $nomeArquivo); 
+// var_dump(__DIR__. $pastaDestino. $nomeArquivo);
+
+if($_FILES['arquivo']['size'] > 10000000)
+{
+echo "Arquivo muito grande";
+exit;
+}
