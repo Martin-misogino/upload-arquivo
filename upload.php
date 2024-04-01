@@ -18,3 +18,13 @@ if($_FILES['arquivo']['size'] > 10000000)
 echo "Arquivo muito grande";
 exit;
 }
+
+
+//var_dump (basename($_FILES["arquivo"]["name"]));
+$extensao = strtolower(pathinfo($nomeArquivo,PATHINFO_EXTENSION));
+var_dump (strtolower(pathinfo($target_file,PATHINFO_EXTENSION)));
+
+if($extensao != "jpg" and $extensao != "jpeg" and $extensao != "png" and $extensao != "gif"){
+ echo "formato do arquivo invalido";
+ exit;
+}
