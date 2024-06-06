@@ -40,7 +40,17 @@ var_dump(__DIR__.$pastaDestino. $_FILES['arquivo']['name']);
 $fezUpload= move_uploaded_file($_FILES['arquivo']['tmp_name'],__DIR__ . $pastaDestino. $novoNomeArquivo. "." . $extensao);
 
 if($fezUpload == true){
+
+    $conexao = mysqli_connect("localhost", "root", "", "upload_arquivos");
+    $sql = "INSERT INTO arquivo (nome_arquivo) VALUES ('$novoNomeArquivo . $extensao')";
+    $resultado = mysqli_query($conexao, $sql);
+    if ($resultado != false) 
+    {
     header("location:index.php");
+    } else {
+        echo "erro ao registrar arquivo no banco de dados";
+    }
+
 }
 else{
     echo "Erro ao mover o arquivo.";
