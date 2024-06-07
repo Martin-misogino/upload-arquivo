@@ -37,13 +37,20 @@ if($resultado != false) {
         <tbody>
             <?php 
                 foreach($arquivos as $arquivo) {
-                    echo "<tr> <td>" . $arquivo["nome_arquivo"] . "</td>";
-                    echo "<td><a href='alterar.php?nome_arquivo=". $arquivo['nome_arquivo']."'> Alterar</td>";
-                    echo "<td><a href='excluir.php?nome_arquivo=". $arquivo['nome_arquivo']."'> Excluir</td></tr>";
+                    $arq = $arquivo['nome_arquivo'];
+                    echo "<tr>"; echo "<td>$arq</td>";
+                    echo "<td>"; echo "<a "; echo "href='alterar.php?nome_arquivo= $arq'> Alterar</td>";
+                    echo "<td><button onclick='excluir(\" $arq \")'> Excluir</button></td></tr>";
                 }
             ?>
         </tbody>
     </table>
+
+   <script>
+    function excluir(nome_arquivo) {
+        confirm("Você tem certeza que deseja excluir o arquivo" + nome_arquivo + "?");
+    }
+   </script>
 
 </body>
 </html>
