@@ -39,8 +39,8 @@ if($resultado != false) {
                 foreach($arquivos as $arquivo) {
                     $arq = $arquivo['nome_arquivo'];
                     echo "<tr>"; echo "<td>$arq</td>";
-                    echo "<td>"; echo "<a "; echo "href='alterar.php?nome_arquivo= $arq'> Alterar</td>";
-                    echo "<td><button onclick='excluir(\" $arq \")'> Excluir</button></td></tr>";
+                    echo "<td>"; echo "<a "; echo "href='alterar.php?nome_arquivo=$arq'> Alterar</td>";
+                    echo "<td><button onclick='excluir(\"$arq\")'> Excluir</button></td></tr>";
                 }
             ?>
         </tbody>
@@ -50,7 +50,7 @@ if($resultado != false) {
     function excluir(nome_arquivo) {
         let deletar = confirm("Você tem certeza que deseja excluir o arquivo" + nome_arquivo + "?");
         if (deletar == true) {
-            window.location.href = "deletar.php?nome_arquivo" + nome_arquivo;
+            window.location.href = "deletar.php?nome_arquivo=" + nome_arquivo;
         }
     }
    </script>

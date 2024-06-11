@@ -1,7 +1,7 @@
 <?php
 $nome_arquivo = $_GET['nome_arquivo'];
 $pastaDestino = "/uploads/";
-$apagou = unlink(__DIR__ . $pastaDestino . $_POST['nome_arquivo']);
+$apagou = unlink(__DIR__ . $pastaDestino . $_GET['nome_arquivo']);
          if($apagou == true) {
             $conexao = mysqli_connect("localhost", "root", "", "upload_arquivos");
             $sql = "DELETE FROM arquivo WHERE nome_arquivo = '$nome_arquivo'";
@@ -14,3 +14,5 @@ $apagou = unlink(__DIR__ . $pastaDestino . $_POST['nome_arquivo']);
             echo "erro ao apagar arquivo";
             die();
          }
+header("location:index.php");
+?>
